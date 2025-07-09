@@ -34,8 +34,8 @@ class View(ft.UserControl):
         self._page.controls.append(self._title)
 
         #ROW with some controls
-        self.ddyear = ft.Dropdown(label="Anno")
-        self.ddcountry= ft.Dropdown(label="Nazione")
+        self.ddyear = ft.Dropdown(label="Anno", options=self._controller.metti_opzioni_year())
+        self.ddcountry= ft.Dropdown(label="Nazione",options=self._controller.metti_opzioni())
 
         self.btn_graph = ft.ElevatedButton(text="Crea Grafo", on_click=self._controller.handle_graph)
 
@@ -50,7 +50,7 @@ class View(ft.UserControl):
         self._page.update()
 
 
-        self.btn_volume = ft.ElevatedButton(text="Calcola Volumi", on_click=self._controller.handle_volume)
+        self.btn_volume = ft.ElevatedButton(text="Calcola Volumi", on_click=self._controller.handle_volume, disabled=True)
         row2 = ft.Row([self.btn_volume],
                       alignment=ft.MainAxisAlignment.CENTER)
         self._page.controls.append(row2)
